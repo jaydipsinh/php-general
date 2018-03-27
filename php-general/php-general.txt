@@ -1,0 +1,5 @@
+DB Dump with command line
+mysqldump -u root -p db_name > D:/wamp/www/test.sql (sql location)
+
+Import db dump in database
+mysql -u root -p db_name < D:/wamp/www/test.sql (sql location)
