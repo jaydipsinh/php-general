@@ -1,0 +1,73 @@
+
+Create DB Query
+---------------------------------------------------------------------------
+CREATE DATABASE IF NOT EXISTS `DATABASE NAME` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+---------------------------------------------------------------------------
+Mysqldump
+---------------------------------------------------------------------------
+mysqldump -u root -p db_name > db.sql
+
+---------------------------------------------------------------------------
+httpd / mysql status - service restart
+---------------------------------------------------------------------------
+service httpd status
+service httpd stop
+service httpd start
+service httpd restart
+
+service mysqld status
+service mysqld stop
+service mysqld start
+service mysqld restart
+
+service httpd reload ( To reload the httpd.conf changes without restart services)
+
+---------------------------------------------------------------------------
+Increase History Size
+---------------------------------------------------------------------------
+export HISTSIZE=9000
+echo $HISTSIZE
+
+---------------------------------------------------------------------------
+Mysqld log path
+---------------------------------------------------------------------------
+/var/log/mysqld.log
+ib_logfile path: /var/lib/mysql/
+
+---------------------------------------------------------------------------
+Telnet
+---------------------------------------------------------------------------
+telnet website name 80
+telnet website name 443
+telnet website name 3306
+
+---------------------------------------------------------------------------
+Server to Server Transfer
+---------------------------------------------------------------------------
+scp -r /var/www/html/* root@aaa.bbb.ccc.ddd:"/tmp/websitename"
+
+---------------------------------------------------------------------------
+Remove SSL Key from SSL cert
+---------------------------------------------------------------------------
+openssl rsa -in private.key -out newprivate.key
+
+---------------------------------------------------------------------------
+Change SSH root Password
+---------------------------------------------------------------------------
+Passwd root
+
+---------------------------------------------------------------------------
+Change mysql root Password
+---------------------------------------------------------------------------
+Mysqladmin -u root password 'same as website password'
+
+---------------------------------------------------------------------------
+To know the Number of CPUs
+---------------------------------------------------------------------------
+cat /proc/cpuinfo | grep processor | wc -l
+
+---------------------------------------------------------------------------
+Enable Virtual Host
+---------------------------------------------------------------------------
+ln -s /etc/httpd/sites-available/nicsilive.dev.conf /etc/httpd/sites-enabled/nicsilive.dev.conf
